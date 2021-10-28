@@ -76,6 +76,72 @@
           }
         }
       }
+    },
+    "/specifications": {
+      "post":{
+        "tags": ["Specification"],
+        "summary":"Create a specification",
+        "description": "Create a new specification",
+        "requestBody":{
+          "content":{
+            "application/json":{
+              "schema":{
+                "type":"object",
+                "properties":{
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "example":{
+                  "name": "specification name sample",
+                  "description": "specification description sample"
+                }
+              }
+            }
+          }
+        },
+        "responses":{
+          "201":{
+            "description": "Created"
+          },
+          "500": {
+            "description": "category already exists"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Specification"
+        ],
+        "summary": "List all specifications",
+        "description": "List all specifications",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
